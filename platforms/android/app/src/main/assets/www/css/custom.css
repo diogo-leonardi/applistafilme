@@ -1,0 +1,30 @@
+
+.imagem-filme {
+    max-width: 200px;
+}
+
+.cor-fundo-linha td {
+    background-color: #ccc;
+    border-color: #ccc;
+    text-align: center;
+    font-family: 'Sarabun', sans-serif;
+}
+
+.cor-h1 {
+    background-color: #666;
+    color: #fff;
+    text-align: center;
+    font-family: 'Coiny', cursive;
+}
+
+.margin-top-20 {
+    margin-top: 20px;
+}
+
+.formata-label {
+    font-weight: bold;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}

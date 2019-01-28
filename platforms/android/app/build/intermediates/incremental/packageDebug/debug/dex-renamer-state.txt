@@ -1,0 +1,4 @@
+#Sun Jan 27 18:03:08 BRST 2019
+base.0=C\:\\Users\\Diogo\\Documents\\Diogo\\Vagas\\Projeto\\applistafilme\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.0=classes.dex
+renamed.0=classes.dex

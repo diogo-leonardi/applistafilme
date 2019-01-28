@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+        <link href="https://fonts.googleapis.com/css?family=Coiny|Sarabun" rel="stylesheet" />
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+    </head>
+    
+    <body>
+        <div class="container margin-top-20">
+            <div class="row margin-bottom-20">
+                <div class="col-md-3 margin-bottom-20">
+                    <img src="" class="img-fluid">
+                </div>
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h1 id="nome_do_titulo">                           
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <span class="formata-label">Data de Lançamento:</span>
+                            <span id="data_lancamento"></span>
+                        </div>
+                    </div>
+                    <div class="row margin-top-20">
+                        <div class="col-md-12">
+                            <div class="formata-label">Sinopse:</div>
+                            <span id="sinopse"></span>
+                        </div>
+                    </div>
+                    <div class="row margin-top-20">
+                        <div class="col-md-12">
+                            <span class="formata-label">Gênero:</span>
+                            <span id="genero"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row margin-bottom-20">
+                <div class="col-md-12 text-center">
+                    <a href="index.html" class="btn btn-warning">
+                        Voltar
+                    </a>
+                </div>
+            </div>
+        </div>
+        <script sr6c="cordova.js"></script>
+        <script>
+            $(document).ready(function(){
+
+                var idDoFilme = getParametroUrl(window.location.href,'id');
+                
+                $('#id_da_pagina').html(idDoFilme);
+                
+                $.ajax({
+                    url: 'https://api.themoviedb.org/3/movie/'+idDoFilme+'?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR',
+                    success: function(data) {
+                        urlImagem = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'+data.backdrop_path;
+                        
+                        $('img').attr('src',urlImagem);
+                        $('#nome_do_titulo').html(data.title);
+                        $('#data_lancamento').html(data.release_date);
+                        $('#sinopse').html(data.overview);
+                        
+                        nomeGenero = '';
+                        
+                        $.each(data.genres,function(k,v){
+                            nomeGenero += (nomeGenero == '') ? v.name : ' - '+v.name;
+                        });
+                        
+                        $('#genero').html(nomeGenero);
+                        console.log(data);
+                    }
+                });
+                
+            });
+        </script>
+    </body>
+</html>

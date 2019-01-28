@@ -1,0 +1,72 @@
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/custom.css" />
+        <link href="https://fonts.googleapis.com/css?family=Coiny|Sarabun" rel="stylesheet" />
+        
+        <script src="js/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+        <script src="js/custom.js"></script>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <table border="0" class="table">
+                        <tr>
+                            <th>
+                                <h1 class="cor-h1">Próximos Filmes</h1>
+                            </th>
+                        </tr>
+                        <tbody id="corpo_tabela"></tbody>
+                    </table>
+                </div>
+            </div>
+	
+            <div class="row text-center margin-bottom-20">
+                <div class="col-md-12">
+                    <button id="btn_carregar_filmes" class="btn btn-danger">
+                        Carregar Mais Filmes ...
+                    </button>
+                </div>
+            </div>
+        </div>
+        <script src="cordova.js"></script>
+        <script>
+            
+            var numeroDaPaginaGlobal = 1;
+            var contaFilme = 1;
+            
+            function retornaFilmes()
+            {
+                $.ajax({
+                    'url': 'https://api.themoviedb.org/3/movie/upcoming?api_key=1f54bd990f1cdfb230adb312546d765d&language=pt-BR&page='+numeroDaPaginaGlobal,
+                    success: function(dados){
+
+                        $.each(dados.results,function(chave,valor){
+                            urlImagem = 'https://image.tmdb.org/t/p/w600_and_h900_bestv2'+valor.poster_path;
+                            nomesGeneros = getGenero(genero.genres,valor.genre_ids);
+
+                            adicionaLinha(urlImagem,valor.title,valor.release_date,nomesGeneros,valor.id,contaFilme);
+
+                            contaFilme++;
+                        });
+
+                        numeroDaPaginaGlobal++;
+                    }
+                });
+            }
+            
+            $('#btn_carregar_filmes').click(function(){
+                retornaFilmes();
+            });
+            
+            $(document).ready(function(){
+                retornaFilmes();
+            });
+        </script>
+    </body>
+</html>
