@@ -26,18 +26,14 @@ At the end of the details, there is a button called Voltar, where when you click
 
 Special libraries used in this application:
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />
-    --> It was the front-end framework used to create the app's interface.
+"<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" />"
+>>> It was the front-end framework used to create the app's interface.
 
+"<link rel="stylesheet" href="css/custom.css" />"
+>>> In custom .css, in order to facilitate future maintenance, I include the main formatting used.
 
-​    
-    <link rel="stylesheet" href="css/custom.css" />
-    --> In custom .css, in order to facilitate future maintenance, I include the main formatting used.
-
-
-​    
-    <link href="https://fonts.googleapis.com/css?family=Coiny|Sarabun" rel="stylesheet" />
-    --> This reference was required to use the fonts in the App.
+"<link href="https://fonts.googleapis.com/css?family=Coiny|Sarabun" rel="stylesheet" />"
+>>> This reference was required to use the fonts in the App.
 
 
 
